@@ -8,20 +8,20 @@ from keep_alive import keep_alive
 from logger import logger
 from bot import TelegramBot
 from app import app, db
-from flask import Flask, jsonify
+# from flask import Flask, jsonify
 
-app = Flask(__name__)
+# app = Flask(__name__)
 
-@app.route('/')
-def home():
-    return jsonify({"message": "Namaste Vercel!"})
+# @app.route('/')
+# def home():
+#     return jsonify({"message": "Namaste Vercel!"})
 
-# Vercel ke liye WSGI adapter
-def handler(request):
-    from flask import Response
-    with app.app_context():
-        response = app.full_dispatch_request()
-        return Response(response.get_data(), status=response.status_code, headers=dict(response.headers))
+# # Vercel ke liye WSGI adapter
+# def handler(request):
+#     from flask import Response
+#     with app.app_context():
+#         response = app.full_dispatch_request()
+#         return Response(response.get_data(), status=response.status_code, headers=dict(response.headers))
 
 # Load environment variables
 load_dotenv()
